@@ -2,7 +2,7 @@
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 $servername = "localhost";
 $username = "root";
-$password = "potatofry2530";
+$password = "your_password";
 $dbname = "shoppingcart";
 // Connection to database & selecting database to workwith
 $conn = mysqli_connect($servername, $username, $password, $dbname);

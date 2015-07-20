@@ -7,7 +7,7 @@
 $name = $email ="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$Username ="root";
-	$Password ="potatofry2530";
+	$Password ="your_password";
 	$Server = "localhost";
 	$database ="shoppingcart";
 	$connect = mysqli_connect($Server, $Username, $Password,$database);
