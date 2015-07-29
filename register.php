@@ -1,34 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head></head>
-<body>
 <?php
-// define variables and set to empty values
-$name = $email ="";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$Username ="root";
-	$Password ="your_password";
-	$Server = "localhost";
-	$database ="shoppingcart";
-	$connect = mysqli_connect($Server, $Username, $Password,$database);
-	
-	if(!connect){
-		die("Connection failed:" .mysqli_connect_error());
-	}
-	$Name = $_POST['Name'];
-	$email = $_POST['email'];
-	$password= $_POST['password'];
-	$mobile = $_POST['mobile'];
-	$sql="INSERT INTO customers(`Name`,`email`,`password`,`mobile`)
-		VALUES ('$Name','$email','$password','$mobile')";
-	if(mysqli_query($connect,$sql)){
-		echo "Account successfully created";
-		echo "<br>";
-	}
-	mysqli_close($connect);
-}	
-?>
+$servername = "localhost";
+$username = "root";
+$password = "potatofry2530";
+$dbname = "shoppingcart";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$email = $_POST["email"];
+$password = $_POST["password"];
+$sql = "INSERT INTO Users (id,password)
+VALUES ('$email','$password')";
 
-</body>
-</html>
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+header('Location:http://localhost/login.php');
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
+$conn->close();
+?> 
