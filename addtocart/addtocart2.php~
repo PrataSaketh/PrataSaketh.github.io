@@ -17,15 +17,11 @@
 		}
 		$quan=$_POST['quan'];
 		echo "Your Product quantity is ".$quan."<br>";
-		$name="Dell Inspiron 3551 Notebook";
+		$name="HP 15-ac042TU (Notebook)";
 		$price=26999;
 		$_SESSION['each']= $quan * $price;
 		$u=$_SESSION['name'];
 		$total=$_SESSION['each'];
-if($u!=""){
-header('Location:http://localhost/login.html');
-}
-else{
 		echo "Total price:".$total."<br>";
 		$sql ="INSERT INTO `shoppingcart`.billing (User,Name,Quantity,Price,Total) VALUES ('$u','$name','$quan','$price','$total')";
                 if (!mysql_query($sql)) {
@@ -34,7 +30,7 @@ else{
                 else {
                       echo "Inserted successfully";
                   }
-	}}	
+	}	
 	?>
 		 <a href='http://localhost/product.php'>Go to the main website</a>
 

@@ -17,13 +17,13 @@
 		}
 		$quan=$_POST['quan'];
 		echo "Your Product quantity is ".$quan."<br>";
-		$name="Dell Inspiron 3551 Notebook";
+		$name="HP Pavilion 15-ab032TX (Notebook)";
 		$price=53999;
 		$_SESSION['each']= $quan * $price;
 		$u=$_SESSION['name'];
 		$total=$_SESSION['each'];
 if($u=""){
-header('Location:http://localhost/login.html');
+header('Location: http://localhost/login.html');
 }
 else{
 		echo "Total price:".$total."<br>";
